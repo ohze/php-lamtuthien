@@ -17,7 +17,10 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
   apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
 
 # install Imagemagick & PHP Imagick ext
-RUN apk update && apk add \
-      libmagickwand-dev --no-install-recommends
+RUN apk add --no-cache imagemagick-dev \
+        && pecl install imagick \
+        && docker-php-ext-enable imagick \
 
-RUN pecl install imagick && docker-php-ext-enable imagick
+# Clear
+RUN apk del --no-cache autoconf g++ libtool make \
+        && rm -rf /tmp/* /var/cache/apk/*
