@@ -6,7 +6,7 @@ RUN docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" pdo pdo_mysql && \
   rm -rf /var/cache/apk/*
 
 # install GD and mcrypt
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd
 
 # install Imagemagick & PHP Imagick ext
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add -y \
       libmagickwand-dev --no-install-recommends
 
 RUN pecl install imagick && docker-php-ext-enable imagick
