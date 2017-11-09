@@ -1,6 +1,8 @@
 # image: sandinh/php-lamtuthien
 
-FROM php:7-fpm-alpine
+FROM alpine:3.6
 
-RUN docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" pdo pdo_mysql && \
-  rm -rf /var/cache/apk/*
+RUN apk add --no-cache php7-fpm php7-gd php7-imagick
+
+EXPOSE 9000
+CMD ["php-fpm7"]
