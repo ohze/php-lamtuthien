@@ -11,7 +11,21 @@ RUN set -x \
 # http://git.alpinelinux.org/cgit/aports/tree/main/lighttpd/lighttpd.pre-install?h=v3.3.2
 # http://git.alpinelinux.org/cgit/aports/tree/main/nginx-initscripts/nginx-initscripts.pre-install?h=v3.3.2
 
-RUN apk add --no-cache php7-fpm php7-gd php7-imagick php7-mbstring php7-pdo php7-pdo_mysql php7-json php7-fileinfo php7-session \
+RUN apk add --no-cache \
+        php7-fpm \
+        php7-gd \
+        php7-imagick \
+        php7-mbstring \
+        php7-pdo \
+        php7-pdo_mysql \
+        php7-json \
+        php7-fileinfo \
+        php7-session \
+        php7-curl \
+        php7-zlib \
+        php7-iconv \
+        php7-ctype \
+        php7-tokenizer \
     && { \
         echo '[global]'; \
         echo 'error_log = /proc/self/fd/2'; \
