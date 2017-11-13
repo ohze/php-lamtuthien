@@ -12,7 +12,6 @@ RUN set -x \
 # http://git.alpinelinux.org/cgit/aports/tree/main/nginx-initscripts/nginx-initscripts.pre-install?h=v3.3.2
 
 RUN apk add --no-cache \
-        update \
         php7-fpm \
         php7-gd \
         php7-imagick \
