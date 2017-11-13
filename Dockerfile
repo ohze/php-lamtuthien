@@ -23,9 +23,12 @@ RUN apk add --no-cache \
         php7-session \
         php7-curl \
         php7-zlib \
+        php7-zip \
         php7-iconv \
         php7-ctype \
         php7-tokenizer \
+        php7-phar \
+        composer \
     && { \
         echo '[global]'; \
         echo 'error_log = /proc/self/fd/2'; \
